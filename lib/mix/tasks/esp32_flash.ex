@@ -178,6 +178,10 @@ defmodule Mix.Tasks.Atomvm.Esp32.Flash do
     parse_args(t, Map.put(accum, :flash_offset, offset))
   end
 
+  defp parse_args([<<"--start">>, mod | t], accum) do
+    parse_args(t, Map.put(accum, :start, mod))
+  end
+
   defp parse_args([_ | t], accum) do
     parse_args(t, accum)
   end
